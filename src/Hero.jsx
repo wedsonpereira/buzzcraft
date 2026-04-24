@@ -1,8 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import SplitType from 'split-type';
 import './Hero.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   const [data, setData] = useState(null);
@@ -12,6 +15,9 @@ export default function Hero() {
   const titleMid = useRef(null);
   const title2 = useRef(null);
   const asterisk = useRef(null);
+  const heroDescRef = useRef(null);
+  const bottomInfoRef = useRef(null);
+  const marqueeRef = useRef(null);
 
   useEffect(() => {
     fetch('/data.json')
@@ -43,6 +49,25 @@ export default function Hero() {
       opacity: 0, y: 50, duration: 0.8, stagger: 0.02, ease: 'back.out(1.7)'
     }, 0.4);
 
+    // Hero description entrance
+    if (heroDescRef.current) {
+      tl.fromTo(heroDescRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+        0.6
+      );
+    }
+
+    // Bottom info (arrow + customers) staggered reveal
+    if (bottomInfoRef.current) {
+      const bottomChildren = bottomInfoRef.current.children;
+      tl.fromTo(bottomChildren,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out' },
+        0.8
+      );
+    }
+
     gsap.to(asterisk.current, {
       rotation: 360,
       duration: 10,
@@ -50,6 +75,66 @@ export default function Hero() {
       ease: "linear",
       transformOrigin: "center center"
     });
+
+    // Background parallax on scroll
+    gsap.fromTo(".hero-bg-img",
+      { y: 0, scale: 1 },
+      {
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+        },
+        y: 150,
+        scale: 1.1,
+        ease: "none"
+      }
+    );
+
+    // Marquee entrance
+    if (marqueeRef.current) {
+      gsap.fromTo(marqueeRef.current,
+        { opacity: 0, y: 40 },
+        {
+          scrollTrigger: {
+            trigger: marqueeRef.current,
+            start: "top 95%",
+          },
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out"
+        }
+      );
+    }
+
+    // Parallax fade out hero content on scroll
+    gsap.fromTo(leftContent.current,
+      { opacity: 1, y: 0 },
+      {
+        scrollTrigger: {
+          trigger: container.current,
+          start: "60% top",
+          end: "bottom top",
+          scrub: 1,
+        },
+        opacity: 0,
+        y: -60,
+        ease: "none"
+      }
+    );
+
+    return () => {
+      split1.revert();
+      splitMid.revert();
+      split2.revert();
+      ScrollTrigger.getAll().forEach(st => {
+        if (container.current && container.current.contains(st.trigger)) {
+          st.kill();
+        }
+      });
+    };
 
   }, { scope: container, dependencies: [data] });
 
@@ -89,9 +174,9 @@ export default function Hero() {
               </div>
             </h1>
 
-            <p className="hero-desc">{data.description}</p>
+            <p className="hero-desc" ref={heroDescRef}>{data.description}</p>
 
-            <div className="hero-bottom-info">
+            <div className="hero-bottom-info" ref={bottomInfoRef}>
               <div className="hero-arrow-wrapper">
                 <img src="/arrow.png" alt="Direction arrow" className="hero-arrow" />
               </div>
@@ -113,7 +198,7 @@ export default function Hero() {
           </div>
         </div>
       {data.marquee && (
-        <div className="hero-marquee">
+        <div className="hero-marquee" ref={marqueeRef}>
           <div className="marquee-content">
             {data.marquee.map((item, index) => (
               <React.Fragment key={`m1-${index}`}>

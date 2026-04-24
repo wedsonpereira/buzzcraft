@@ -323,25 +323,28 @@
   }
 
   .hero-title {
-    font-size: clamp(42px, 12vw, 75px);
+    width: 100%;
+    max-width: 100%;
+    font-size: clamp(42px, 11vw, 62px);
     margin: 24px 0;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
     gap: 15px;
-    /* Adds gap between the title lines */
+    overflow: hidden;
   }
 
   .h1-line-wrapper {
-    display: flex;
-    justify-content: flex-start;
+    display: block;
     width: 100%;
   }
 
   .h1-line {
     white-space: normal;
+    max-width: 100%;
+    overflow-wrap: normal;
   }
 
   .h1-middle-wrapper {
@@ -364,6 +367,7 @@
     padding-right: 0;
     gap: 12px;
     flex-wrap: nowrap;
+    min-width: 0;
   }
 
   .design-agency-line .asterisk {
@@ -372,7 +376,12 @@
   }
 
   .design-agency-line .split-text {
-    font-size: clamp(48px, 8vw, 40px);
+    min-width: 0;
+    max-width: calc(100% - 64px);
+    font-size: clamp(42px, 11vw, 58px);
+    line-height: 1.06;
+    white-space: normal;
+    overflow-wrap: break-word;
   }
 
   .title-decor-img {
@@ -386,6 +395,7 @@
     font-size: 16px;
     text-align: left;
     margin: 20px 0 0 0;
+    max-width: 100%;
   }
 
   .hero-bottom-info {
@@ -411,6 +421,30 @@
 }
 
 @media (max-width: 480px) {
+  .hero-section {
+    padding-inline: 24px;
+  }
+
+  .hero-title {
+    font-size: clamp(38px, 12vw, 48px);
+    letter-spacing: 0;
+    line-height: 1.2;
+  }
+
+  .h1-middle {
+    font-size: clamp(30px, 10vw, 44px);
+  }
+
+  .design-agency-line {
+    gap: 10px;
+    margin-left: 0;
+  }
+
+  .design-agency-line .split-text {
+    max-width: calc(100% - 54px);
+    font-size: clamp(38px, 11vw, 46px);
+  }
+
   .customers-text {
     font-size: 14px;
     margin-top: 0;

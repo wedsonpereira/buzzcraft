@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
   flex-direction: column;
 }
@@ -56,13 +56,20 @@
   /* Approximately 5x larger than the subtitle base font size */
   font-size: clamp(70px, 8vw, 90px);
   color: transparent;
-  -webkit-text-stroke: 0.4px #fff;
+  -webkit-text-stroke: 4px #e47707;
   font-weight: var(--fw-semibold);
   line-height: 1.1;
   margin: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 
+
+.hover-word {
+  display: inline-block;
+  white-space: nowrap;
+}
 
 .hover-char {
   display: inline-block;
@@ -78,19 +85,19 @@
 
 .about-image-container {
   margin-top: 60px;
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   padding: 80px 40px;
   min-height: 400px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/boywithbees.jpg');
   background-size: cover;
   background-position: center;
-  border-radius: 0 0 4rem 0;
+  border-radius: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   box-sizing: border-box;
-
 }
 
 .about-description-box {
@@ -118,6 +125,7 @@
 
 .description-word {
   display: inline-block;
+  margin-right: 0.3em;
 }
 
 .description-hover-char {
@@ -135,9 +143,13 @@
   font-family: var(--sans);
   font-size: 3rem;
   color: #a0a0a0;
-  margin: 90px auto 20px; /* Reduced bottom margin */
+  margin: 90px auto 20px;
   line-height: 1.4;
   width: 90%;
+}
+
+.about-footer-text--second {
+  margin-top: 20px;
 }
 
 .sketch-highlight {
@@ -219,6 +231,7 @@
   font-weight: 600;
   transform: translateY(-2px);
 }
+
 .arrow-down-btn {
   display: inline-flex;
   justify-content: center;
@@ -247,7 +260,7 @@
 .india-portfolio-container {
   width: 100vw;
   min-height: 10vh;
-  background-color: #8fff00;
+  background:greenyellow;
   margin-top: 80px;
   padding: 90px 40px;
   display: flex;
@@ -283,7 +296,7 @@
   line-height: 1.5;
   z-index: 1;
   color: #170808;
-  text-shadow: 0px 3px 0 rgba(0, 0, 0, 0.45), 0 2px 8px rgba(255, 255, 255, 0.15);
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.18);
   will-change: transform, opacity;
   display: flex;
   flex-direction: column;
@@ -325,6 +338,8 @@
 .india-portfolio-quote-text {
   display: block;
   font-size: 2.2rem;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .quote-word {
@@ -337,34 +352,359 @@
   will-change: transform, color;
 }
 
+@keyframes scroll-pills {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 10px));
+  }
+}
+
+/* ── Goals Section ── */
+.goals-container {
+  margin-top: 80px;
+}
+
+.goals-layout {
+  position: relative;
+  padding-top: clamp(0.5rem, 4vw, 7rem);
+  font-family: var(--sans);
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.goals-text-col {
+  width: 55%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.goals-badge {
+  display: inline-block;
+  position: relative;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 2.8vw, 2.6rem);
+  color: #fff;
+  white-space: nowrap;
+  z-index: 5;
+  margin-bottom: 8px;
+}
+
+.goals-badge::after {
+  content: '';
+  position: absolute;
+  bottom: 0.05em;
+  left: -0.1em;
+  right: -0.1em;
+  height: 40%;
+  background: var(--theme-color);
+  opacity: 0.35;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 2px;
+}
+
+.goals-badge.is-wiped::after {
+  transform: scaleX(1);
+}
+
+.goals-badge-underline {
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  overflow: visible;
+}
+
+.goals-badge-underline path {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+}
+
+.goals-paragraph {
+  color: #fff;
+  font-size: clamp(1.5rem, 2.8vw, 2.6rem);
+  line-height: clamp(2rem, 3.2vw, 3.2rem);
+  opacity: 0.75;
+  position: relative;
+  z-index: 10;
+  margin: 8px 0 0 0;
+}
+
+.goals-paragraph .word {
+  display: inline-block;
+  margin-right: 0.15em;
+}
+
+.goals-image-col {
+  position: relative;
+  flex-shrink: 0;
+  transform: rotate(-5deg);
+  margin-right: -40px;
+  margin-top: 20px;
+  z-index: 2;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.goals-image-col:hover {
+  transform: rotate(-3deg) translateY(-4px);
+}
+
+.goals-image-frame {
+  position: relative;
+  border: 8px solid var(--theme-color);
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 560px;
+  box-shadow:
+    0 8px 32px rgba(230, 120, 7, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.goals-image {
+  width: 100%;
+  display: block;
+  filter: saturate(1.1) brightness(0.95) sepia(0.08);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.goals-image-col:hover .goals-image {
+  filter: saturate(1.2) brightness(1) sepia(0);
+  transform: scale(1.03);
+}
+
+/* Pin at top-right corner */
+.goals-pin {
+  position: absolute;
+  width: 50px;
+  top: -16px;
+  right: 16px;
+  z-index: 10;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+  transform-origin: center bottom;
+}
+
+/* Curvy arrow at bottom-right */
+.goals-curvy-arrow {
+  position: absolute;
+  bottom: -130px;
+  right: 250px;
+  width: 80px;
+  height: 86px;
+  pointer-events: none;
+}
+
+/* 3D graph icon floating at top-right of text column */
+.goals-graph-float {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  width: clamp(60px, 8vw, 100px);
+  z-index: 15;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  animation: goalGraphFloat 4s ease-in-out infinite;
+}
+
+@keyframes goalGraphFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(-2deg);
+  }
+}
+
+/* Paper plane + line animation container */
+.goals-line-container {
+  position: relative;
+  width: 85%;
+  margin-top: 28px;
+  margin-left: auto;
+  margin-bottom: 40px;
+  overflow: visible;
+}
+
+.goals-traveling-plane {
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  width: 45px;
+  height: 32px;
+  z-index: 2;
+  will-change: transform, opacity;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(255, 140, 0, 0.4));
+}
+
+/* Wavy dashed divider line */
+.goals-wavy-divider {
+  width: 100%;
+  height: 50px;
+  display: block;
+  overflow: visible;
+}
+
+/* Stats row */
+.goals-stats-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 70%;
+}
+
+.goals-stat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  padding: 0 24px;
+}
+
+.goals-stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--theme-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.goals-stat-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.goals-stat-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.goals-stat-number {
+  font-family: var(--sans);
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.goals-stat-label {
+  font-family: var(--sans);
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  color: #a0a0a0;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.goals-stat-divider {
+  width: 1px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+}
+
+/* ─────────────── Responsive ─────────────── */
+
+/* Tablet landscape */
+@media (max-width: 1200px) {
+  .about-footer-text {
+    font-size: 2.4rem;
+  }
+
+  .goals-image-frame {
+    max-width: 380px;
+  }
+}
+
+/* Tablet portrait */
+@media (max-width: 1024px) {
+  .about-section {
+    padding: 50px 24px;
+  }
+
+  .about-footer-text {
+    font-size: 2rem;
+    width: 95%;
+  }
+
+  .goals-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .goals-text-col {
+    width: 100%;
+  }
+
+  .goals-image-col {
+    width: 100%;
+    max-width: 400px;
+    transform: rotate(-3deg);
+    margin-right: 0;
+  }
+
+  .goals-image-frame {
+    max-width: 100%;
+  }
+
+  .goals-stats-row {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .goals-stat {
+    padding: 0 16px;
+  }
+
+  .goals-graph-float {
+    width: 70px;
+  }
+
+  .india-portfolio-container {
+    padding: 70px 24px;
+  }
+}
+
 @media (max-width: 900px) {
   .india-portfolio-quote-text {
     font-size: 1.5rem;
   }
 }
 
-@keyframes scroll-pills {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 10px)); }
-}
-
+/* Mobile */
 @media (max-width: 768px) {
   .about-section {
-    padding: 100px 0;
+    padding: 80px 0;
   }
 
   .about-container {
     padding: 0 20px;
+    width: 100%;
   }
 
   .about-heading {
     font-size: clamp(40px, 10vw, 60px);
+    -webkit-text-stroke-width: 2px;
+    line-height: 1.08;
   }
 
   .about-image-container {
     margin-top: 40px;
     padding: 60px 20px;
-    border-radius: 16px;
+    min-height: 250px;
   }
 
   .about-description-box {
@@ -372,4 +712,167 @@
     min-width: 0;
     padding: 30px 20px;
   }
+
+  .about-footer-text {
+    font-size: 1.6rem;
+    width: 100%;
+    margin: 50px auto 16px;
+  }
+
+  .pill-marquee-container {
+    margin: 24px 0;
+  }
+
+  .organization-pill {
+    padding: 10px 24px;
+    font-size: 1rem;
+  }
+
+  .india-portfolio-container {
+    padding: 60px 20px;
+    margin-top: 50px;
+  }
+
+  .india-portfolio-quote-text {
+    font-size: clamp(1rem, 4.2vw, 1.25rem);
+    line-height: 1.55;
+  }
+
+  .goals-container {
+    margin-top: 40px;
+  }
+
+  .goals-layout {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .goals-text-col {
+    width: 100%;
+  }
+
+  .goals-paragraph {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .goals-image-col {
+    width: 100%;
+    transform: rotate(-2deg);
+    margin-right: 0;
+    margin-top: 0;
+  }
+
+  .goals-image-frame {
+    max-width: 100%;
+    border-width: 6px;
+  }
+
+  .goals-pin {
+    width: 36px;
+    top: -14px;
+    right: 20px;
+  }
+
+  .goals-curvy-arrow {
+    display: none;
+  }
+
+  .goals-graph-float {
+    width: 55px;
+    top: -5px;
+  }
+
+  .goals-line-container {
+    width: 100%;
+    margin-bottom: 24px;
+    margin-top: 16px;
+  }
+
+  .goals-stats-row {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .goals-stat {
+    padding: 0;
+  }
+
+  .goals-stat-divider {
+    width: 60px;
+    height: 1px;
+  }
+
+  .dubai-badge {
+    padding: 0.05em 0.4em;
+    font-size: 0.9em;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .about-section {
+    padding: 60px 0;
+  }
+
+  .about-container {
+    padding: 0 16px;
+  }
+
+  .about-heading {
+    font-size: clamp(32px, 9vw, 48px);
+    -webkit-text-stroke-width: 1.5px;
+  }
+
+  .about-image-container {
+    padding: 40px 16px;
+    min-height: 200px;
+  }
+
+  .about-description-box {
+    padding: 24px 16px;
+  }
+
+  .about-footer-text {
+    font-size: 1.3rem;
+    margin: 40px auto 12px;
+  }
+
+  .india-portfolio-container {
+    padding: 44px 18px;
+  }
+
+  .india-portfolio-quote-text {
+    font-size: 0.98rem;
+  }
+
+  .goals-container {
+    margin-top: 30px;
+  }
+
+  .goals-paragraph {
+    font-size: 0.95rem;
+  }
+
+  .goals-badge {
+    font-size: 0.95rem;
+  }
+
+  .goals-line-container {
+    margin-bottom: 20px;
+  }
+
+  .goals-stats-row {
+    gap: 16px;
+  }
+}
+
+.font-poppins {
+  font-family: var(--sans);
+}
+
+.goals-bg-red-b4::before {
+  background-color: rgb(228, 119, 7);
 }

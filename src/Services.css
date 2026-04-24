@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
   flex-direction: column;
   position: relative;
@@ -41,17 +41,7 @@
   text-align: left;
 }
 
-.services-subheading {
-  font-family: var(--sans);
-  color: #fff;
-  font-size: clamp(14px, 2vw, 18px);
-  font-weight: var(--fw-medium);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin: 0 0 16px 0;
-  display: flex;
-  align-items: center;
-}
+
 
 .title-arrow-icon {
   display: flex;
@@ -72,26 +62,7 @@
   transform: translateX(1px);
 }
 
-.services-heading {
-  font-family: var(--sans);
-  font-size: clamp(70px, 8vw, 90px);
-  color: transparent;
-  -webkit-text-stroke: 0.4px #fff;
-  font-weight: var(--fw-semibold);
-  line-height: 1.1;
-  margin: 0;
-}
 
-.services-heading .char {
-  transition: color 0.4s ease, -webkit-text-stroke 0.4s ease;
-  cursor: default;
-}
-
-.services-heading .char:hover {
-  color: var(--theme-color);
-  -webkit-text-stroke: 0;
-  transition: color 0s ease, -webkit-text-stroke 0s ease;
-}
 
 .carousel-container {
   display: flex;
@@ -228,32 +199,69 @@
 @media (max-width: 768px) {
   .services-section {
     padding: 100px 0;
-    /* Remove 40px side padding dragging the width down */
   }
 
   .services-container {
     padding: 0 20px;
-    /* Keep title centered without hugging */
+    width: 100%;
+  }
+
+  .services-bg-star {
+    right: -34px;
+    top: 230px;
+    width: 180px;
+    height: 180px;
+    opacity: 0.28;
   }
 
   .carousel-container {
-    padding-left: 1%;
-    padding-right: 1%;
+    padding-left: 16px;
+    padding-right: 16px;
     margin-top: 30px;
-    width: 100vw;
+    width: 100%;
+    scroll-padding-inline: 16px;
   }
 
   .service-card {
-    flex: 0 0 93vw;
-    /* Strictly force 93% of VIEWPORT width */
+    flex: 0 0 calc(100vw - 32px);
     min-width: 0;
-    /* Destroy the 300px hard lock */
     padding: 30px;
-    /* Slightly smaller inner padding for mobile fitting */
   }
 
-  .services-heading {
-    font-size: clamp(40px, 10vw, 60px);
+  .services-section .about-heading {
+    font-size: clamp(34px, 10vw, 50px);
+    max-width: 100%;
+    line-height: 1.08;
+    -webkit-text-stroke-width: 2px;
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-section {
+    padding: 60px 0;
+  }
+
+  .services-container {
+    padding: 0 16px;
+  }
+
+  .services-section .about-heading {
+    font-size: clamp(32px, 9vw, 48px);
+  }
+
+  .service-card {
+    flex: 0 0 calc(100vw - 32px);
+    padding: 24px;
+  }
+
+  .card-title {
+    font-size: 22px;
+  }
+
+  .card-desc {
+    font-size: 14px;
+    margin-bottom: 24px;
   }
 }
 
