@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #0d0d0d;
+  --theme-color: #e67807;
+  --sans: 'Poppins', system-ui, -apple-system, sans-serif;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  font-family: var(--sans);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (pointer: fine) {
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  summary,
+  [role="button"] {
+    cursor: none;
+  }
+}
+
+.site-cursor,
+.site-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 12000;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition:
+    opacity 0.2s ease,
+    width 0.25s ease,
+    height 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.site-cursor {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #ffd9b4 0%, #ffad5a 38%, #ff7a00 100%);
+  box-shadow:
+    0 0 0 1px rgba(255, 196, 143, 0.45),
+    0 0 20px rgba(255, 122, 0, 0.55);
+}
+
+.site-cursor-ring {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 161, 80, 0.62);
+  background: radial-gradient(circle, rgba(255, 140, 66, 0.22) 0%, rgba(255, 140, 66, 0.08) 46%, rgba(255, 140, 66, 0) 76%);
+  backdrop-filter: blur(2px);
+  box-shadow:
+    0 0 32px rgba(255, 122, 0, 0.18),
+    inset 0 0 22px rgba(255, 205, 153, 0.08);
+}
+
+.site-cursor.is-visible,
+.site-cursor-ring.is-visible {
+  opacity: 1;
+}
+
+.site-cursor.is-active {
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle at 30% 30%, #ffe6ca 0%, #ffbe74 42%, #ff7a00 100%);
+  box-shadow:
+    0 0 0 4px rgba(255, 140, 66, 0.14),
+    0 0 28px rgba(255, 122, 0, 0.72);
+}
+
+.site-cursor-ring.is-active {
+  width: 74px;
+  height: 74px;
+  border-color: rgba(255, 209, 164, 0.92);
+  background: radial-gradient(circle, rgba(255, 140, 66, 0.3) 0%, rgba(255, 140, 66, 0.12) 46%, rgba(255, 140, 66, 0) 78%);
+  box-shadow:
+    0 0 44px rgba(255, 122, 0, 0.28),
+    inset 0 0 28px rgba(255, 226, 192, 0.12);
+}
+
+@media (pointer: coarse) {
+  .site-cursor,
+  .site-cursor-ring {
+    display: none;
+  }
+}
+
+/* Custom Scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--theme-color) var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--theme-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(0.8);
+}

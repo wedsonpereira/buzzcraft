@@ -1,2 +1,3 @@
 # buzzcraft
-A agency provides services for the businesses 
+
+A agency provides services for the businesses.

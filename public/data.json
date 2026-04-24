@@ -1,0 +1,191 @@
+{
+  "contact": {
+    "label": "Contact",
+    "email": "info@buzzcraft.in"
+  },
+  "social": [
+    {
+      "platform": "facebook",
+      "url": "#"
+    },
+    {
+      "platform": "twitter",
+      "url": "#"
+    },
+    {
+      "platform": "instagram",
+      "url": "#"
+    },
+    {
+      "platform": "behance",
+      "url": "#"
+    }
+  ],
+  "menu": {
+    "label": "Menu"
+  },
+  "about": {
+    "subheading": "ABOUT OUR COMPANY",
+    "heading": "Elevating Brands With Digital Strategy & Design.",
+    "paragraphs": {
+        "title": "Driving Measurable Growth through Digital Excellence.",
+        "description": "Buzzcraft is a results-driven digital marketing agency based in Mangalore, helping businesses build strong and meaningful digital presence. Our team combines strategy, creativity, and performance marketing to deliver campaigns that not only look great but also drive measurable growth.",
+        "Experience": "10+ Years"
+      },
+    "subsection": [
+      {
+      "icon": "earth",
+      "title": "International Expertise",
+      "description": "Over the years, we’ve partnered with well-known brands in Dubai, gaining international experience and a strong understanding of competitive global markets.",
+        "companies": "NMC, ORCHID CLINIC, AUTOFIX, MOATAMAD, ROYAL PHOENIX"
+    }
+    ],
+    "subsection2": [
+      {
+      "icon": "earth",
+      "title": "India Portfolio",
+      "description": "Successfully partnering with diverse clients across India, adapting our strategies to different industries and business sizes.",
+      "companies": {
+        "Northensky": "Real Estate",
+        "Bhandary Builders": "Construction",
+        "Restaurants & Cafés": ""
+      }
+    }
+    ],
+    "subsection3": [
+      {
+      "title": "The Craft",
+      "header": "Our Core Philosophy"
+      },
+      {
+        "icon": "",
+        "title": "Creative Thinking",
+        "description": "Elevating brand narratives through meticulous visual identity and strategic social media storytelling that cuts through the noise.",
+        "lables": "Branding, Social media"
+      },{
+        "icon": "",
+        "title": "Data-Driven Strategy",
+        "description": "Unlocking growth via precision-engineered performance campaigns fueled by real-time analytics and behavioral insights.",
+        "lables": "Performance, Campaigns"
+      },{
+        "icon": "",
+        "title": "Impactful Experiences",
+        "description": "Architecting digital ecosystems that stand out from the ordinary and facilitate consistent, scalable business growth.",
+        "lables": "Growth, Scale"
+      }
+    ]
+  },
+  "hero": {
+    "topLinkMain": "Strategy, Design, Solution ↗",
+    "topLinkSub": "Development",
+    "titleLine1": "Where digital marketing",
+    "titleMiddle": "meets",
+    "titleLine2": "future-ready strategy",
+    "description": "BuzzCraft helps businesses stand out online with strategy, creativity, and performance-driven marketing. From branding to lead generation, we build digital experiences that convert.",
+    "marquee": [
+      "Strategy",
+      "Branding",
+      "Design",
+      "Development",
+      "Agency",
+      "Marketing"
+    ]
+  },
+  "services": {
+    "subheading": "SERVICES WE OFFER",
+    "heading": "Innovative With Regard To Original Concepts.",
+    "cards": [
+      {
+        "id": "01",
+        "title": "Social Media Marketing",
+        "description": "We help your brand build a strong presence across social media platforms by creating engaging and relevant content. Our team develops strategies that increase brand awareness, drive engagement, and convert followers into customers. From content planning to posting and performance tracking, we manage everything to ensure consistent growth.",
+        "icon": "bowl"
+      },
+      {
+        "id": "02",
+        "title": "Search Engine Optimization",
+        "description": "Our SEO strategies improve your website’s visibility on search engines and help potential customers fi nd your business organically. We focus on both technical and content optimization to ensure long-term growth and sustainable traffic.",
+        "icon": "box"
+      },
+      {
+        "id": "03",
+        "title": "Performance Marketing & Paid Ads",
+        "description": "We run highly targeted advertising campaigns that deliver measurable ROI. Whether it’s lead generation, website traffi c, or sales, we optimize campaigns to ensure the best performance and cost efficiency",
+        "icon": "command"
+      },
+      {
+        "id": "04",
+        "title": "Website Design & Development",
+        "description": "Your website is the digital face of your business. We design modern, responsive, and user-friendly websites that refl ect your brand identity and drive conversions. Our websites are built for performance, speed, and SEO.",
+        "icon": "box"
+      },
+      {
+        "id": "05",
+        "title": "Branding & Creative Design",
+        "description": "We create strong brand identities that help your business stand out in a competitive market. From logo design to marketing materials, we ensure consistency across all brand touchpoints.",
+        "icon": "bowl"
+      },
+      {
+        "id": "06",
+        "title": "3D Model Creation & Visual Content",
+        "description": "We create high-quality 3D models and visual assets that help showcase your products, spaces, or concepts in a realistic and engaging way. This is ideal for real estate, product marketing, architecture, and promotional campaigns.",
+        "icon": "bowl"
+      },
+      {
+        "id": "07",
+        "title": "Content Marketing",
+        "description": "We develop content that connects with your audience and builds trust in your brand. Our content strategies are designed to educate, engage, and convert.",
+        "icon": "bowl"
+      },
+      {
+        "id": "08",
+        "title": "Analytics & Reporting",
+        "description": "We track every campaign and provide transparent reporting so you can see the real impact of our work. Data-driven decisions help us continuously improve performance.",
+        "icon": "bowl"
+      }
+    ]
+  },
+
+  "services2": {
+    "title": "Our Process",
+    "offers": [
+      "Understanding your business","Market research & strategy","Creative development","Campaign launch","Performance monitoring","Optimization & scaling"
+    ]
+  },
+  "process": {
+    "subheading": "OUR PROCESS",
+    "heading": "How We Deliver Results",
+    "steps": [
+      {
+        "id": "01",
+        "title": "Understanding your business",
+        "description": "We begin by deeply understanding your brand, goals, target audience, and competitive landscape to build a solid foundation."
+      },
+      {
+        "id": "02",
+        "title": "Market research & strategy",
+        "description": "Data-driven market analysis and strategic planning to identify opportunities, define KPIs, and craft a winning roadmap."
+      },
+      {
+        "id": "03",
+        "title": "Creative development",
+        "description": "Our creative team designs compelling visuals, copy, and brand assets that resonate with your audience and elevate your identity."
+      },
+      {
+        "id": "04",
+        "title": "Campaign launch",
+        "description": "Precision-targeted campaign deployment across platforms, ensuring maximum reach and impact from day one."
+      },
+      {
+        "id": "05",
+        "title": "Performance monitoring",
+        "description": "Real-time analytics tracking and transparent reporting to measure every metric that matters to your business growth."
+      },
+      {
+        "id": "06",
+        "title": "Optimization & scaling",
+        "description": "Continuous refinement based on performance data, scaling what works and iterating for sustained long-term results."
+      }
+    ]
+  }
+}
